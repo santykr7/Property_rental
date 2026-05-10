@@ -1,17 +1,17 @@
 import React, { useRef } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import './card.css';
-import house from '../../assets/house.jpg'
+import house from '/properties/house.jpg'
 
 
-const Card = () => {
+const Card = ({ item }) => {
   const scrollRef = useRef(null);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
       const { clientWidth } = scrollRef.current;
       const scrollAmount = direction === 'left' ? -clientWidth : clientWidth;
-      
+
       scrollRef.current.scrollBy({
         left: scrollAmount,
         behavior: 'smooth'
@@ -22,24 +22,24 @@ const Card = () => {
   return (
     <div className='card'>
       <div className="image-wrapper">
-        {/* Navigation Buttons */}
-        <button className="nav-btn left" onClick={() => scroll('left')}>
-          <IoIosArrowBack />
-        </button>
-        <button className="nav-btn right" onClick={() => scroll('right')}>
-          <IoIosArrowForward />
-        </button>
+        <button className="nav-btn left" onClick={() => scroll('left')}><IoIosArrowBack /></button>
+        <button className="nav-btn right" onClick={() => scroll('right')}><IoIosArrowForward /></button>
 
-        <div className="images" ref={scrollRef}>
-          <img src={house} alt="House view 1" />
-          <img src={house} alt="House view 2" />
-          <img src={house} alt="House view 3" />
+        <div className="image-container" ref={scrollRef}>
+          {item.images.map((imgSrc, index) => (
+            <img key={index} src={imgSrc} alt="property" loading='lazy' />
+          ))}
         </div>
+        <div className="wishlist-icons">❤️</div>
       </div>
-      
+
       <div className="card-info">
-        <span className='card-span1'>2BHK villa in Kerala</span>
-        <span className='card-span1'>18000/month</span>
+        <div className="card-header">
+          <h3 className="title">{item.title}</h3>
+          <span className="rating">★ {item.rating}</span>
+        </div>
+        <p className="loaction">{item.location}</p>
+        <p className="price"><strong>₹{item.price}</strong> / month</p>
       </div>
     </div>
   );

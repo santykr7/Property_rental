@@ -14,8 +14,21 @@ import { MdCabin } from "react-icons/md";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
 import { FaTreeCity } from "react-icons/fa6";
 
-const Nav = () => {
+const Nav = ({ selectedCategory, setSelectedCategory }) => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const categories = [
+    { name: "Trending", icon: <MdLocalFireDepartment /> },
+    { name: "Houses", icon: <GiFamilyHouse /> },
+    { name: "Rooms", icon: <MdOutlineBedroomParent /> },
+    { name: "Farm Houses", icon: <PiFarm /> },
+    { name: "Pool Houses", icon: <MdOutlinePool /> },
+    { name: "Tents", icon: <FaTent /> },
+    { name: "Cabins", icon: <MdCabin /> },
+    { name: "Shops", icon: <SiHomeassistantcommunitystore /> },
+    { name: "Forest Houses", icon: <FaTreeCity /> },
+  ]
+
   return (
     <div id='Nav'>
       <div className={`hamburger ${isOpen ? 'open' : ''}`}>
@@ -39,15 +52,14 @@ const Nav = () => {
         </div>
       </div>
       <div className="nav2" >
-        <div className="svg11"><MdLocalFireDepartment /><h3>Trending</h3></div>
-        <div className="svg11"><GiFamilyHouse /><h3>Houses</h3></div>
-        <div className="svg11"><MdOutlineBedroomParent /><h3>Rooms</h3></div>
-        <div className="svg11"><PiFarm /><h3>Farm Houses</h3></div>
-        <div className="svg11"><MdOutlinePool /><h3>Pool Houses</h3></div>
-        <div className="svg11"><FaTent /><h3>Tents</h3></div>
-        <div className="svg11"><MdCabin /><h3>Cabins</h3></div>
-        <div className="svg11"><SiHomeassistantcommunitystore /><h3>Shops</h3></div>
-        <div className="svg11"><FaTreeCity /><h3>Forest Houses</h3></div>
+        {categories.map((cat) => (
+          <div
+            key={cat.name}
+            className={`svg11 ${selectedCategory === cat.name ? 'active' : ''}`}
+            onClick={() => setSelectedCategory(cat.name)}
+          >{cat.name}
+          </div>
+        ))}
       </div>
     </div>
   )
