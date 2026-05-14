@@ -1,16 +1,14 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Private Property RentalA high-performance, professional property rental application built with React.js. This project features a modern UI/UX inspired by premium hospitality platforms, featuring dynamic category filtering, a real-time search engine, and responsive image galleries.🚀 FeaturesDynamic Category Filtering: Instantly filter over 40+ properties using a synchronized category bar.Real-time Search: Search properties by title or location with an optimized filtering engine.Smooth Image Sliders: Custom-built image gallery for each card with scroll-snap and touch support.Professional Photo Grid: A high-end property detail page featuring a "Hero Grid" layout and sticky booking widget.Dynamic Routing: Seamless navigation between the home feed and property details using react-router-dom.Fully Responsive: Optimized for desktop, tablet, and mobile devices with a custom CSS Grid system.🛠️ Tech StackFrontend: React.js (Hooks, Refs, Functional Components)Routing: React Router DOM v6Styling: Custom CSS3 (Flexbox, Grid, Keyframe Animations)Icons: React Icons (Lucide, FontAwesome, Ionicons)📦 Project StructurePlaintextsrc/
+ ├── components/
+ │    ├── Nav/          # Main Navigation & Category Bar
+ │    └── Card/         # Property Card with Image Slider
+ ├── pages/
+ │    ├── Home/         # Main Listing Grid & Logic
+ │    └── Details/      # Property Detail View & Gallery
+ ├── utils/
+ │    └── data.js       # Mock Database (25-40 properties)
+ └── App.js             # Routing configuration
+🔧 Installation & SetupClone the repository:Bashgit clone [https://github.com/yourusername/private-property-rental.git](https://github.com/yourusername/private-property-rental.git)
+Install dependencies:Bashnpm install
+Start the development server:Bashnpm run dev
+🎨 Key Technical Implementations1. The Filtering EngineThe application uses a unified state approach to manage data. By combining selectedCategory and searchQuery, the app ensures that users only see relevant results without page reloads.2. CSS Grid & Staggered AnimationsWe implemented an auto-fill grid that handles responsiveness natively. Cards utilize a custom fadeInUp keyframe animation with a staggered animation-delay to create a premium entrance effect.3. Sticky Navigation & DetailsThe booking widget on the details page utilizes position: sticky to improve conversion UX, ensuring the "Reserve" button is always available as the user explores property details.📸 ScreenshotsHome Page (Grid)Property DetailsMobile View📜 LicenseThis project is licensed under the MIT License.How to use this:Create a file named README.md in your project's root folder.Paste the content above.Replace yourusername in the clone link with your actual GitHub username.Replace the placeholder image links with actual screenshots of your app for a better presentation!
