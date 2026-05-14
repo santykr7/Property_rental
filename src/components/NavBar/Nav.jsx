@@ -14,7 +14,7 @@ import { MdCabin } from "react-icons/md";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
 import { FaTreeCity } from "react-icons/fa6";
 
-const Nav = ({ selectedCategory, setSelectedCategory }) => {
+const Nav = ({ selectedCategory, setSelectedCategory, searchQuery, setSearchQuery }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const categories = [
@@ -43,7 +43,7 @@ const Nav = ({ selectedCategory, setSelectedCategory }) => {
           <h1>Private Property Rental</h1>
         </div>
         <div className="search">
-          <input type="text" placeholder='search destination' />
+          <input type="text" placeholder='search destination' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
           <button>Search <CiSearch /></button>
         </div>
         <div className="ham">
