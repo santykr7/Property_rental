@@ -3,11 +3,13 @@ import './Home.css'
 import Card from '../card/Card'
 import { propertyData } from '../../utils/data'
 import Nav from '../NavBar/Nav'
+import {useSearchParams} from 'react-router-dom'
 
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState('Trending')
   const [searchQuery, setSearchQuery] = useState('')
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const filteredProduct = propertyData.filter((item) => {
     const matchesCategory = item.category === selectedCategory;

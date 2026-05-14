@@ -1,15 +1,17 @@
 import { useState } from 'react'
+import {Route, Routes} from 'react-router-dom'
 import './App.css'
 import Nav from './components/NavBar/Nav'
 import Home from './components/Home/Home'
+import PropertyDetails from './pages/PropertyDetails/PropertyDetails';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-   <>
-    <Home />
-   </>
+   <Routes>
+    <Route path='/' element={<Home />}/>
+    <Route path='/property/:id' element={<PropertyDetails />}/>
+   </Routes>
   )
 }
 
